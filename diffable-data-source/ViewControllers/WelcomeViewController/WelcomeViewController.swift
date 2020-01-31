@@ -12,8 +12,16 @@ import RxCocoa
 
 final class WelcomeViewController: UIViewController {
 
+    //
+    // MARK: - Properties
+    //
+    
     let contentView = WelcomeView()
     let disposeBag = DisposeBag()
+    
+    //
+    // MARK: - View methods
+    //
     
     override func loadView() {
         view = contentView
@@ -28,6 +36,22 @@ final class WelcomeViewController: UIViewController {
         setupObservables()
     }
     
+    //
+    // MARK: - Actions
+    //
+    
+    private func handleTableButtonPressed() {
+        navigationController?.pushViewController(TableViewController(), animated: true)
+    }
+    
+    private func handleCollectionButtonPressed() {
+        navigationController?.pushViewController(CollectionViewController(), animated: true)
+    }
+    
+    //
+    // MARK: - Private methods
+    //
+    
     private func setupObservables() {
         contentView.tableButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -40,13 +64,5 @@ final class WelcomeViewController: UIViewController {
                 self?.handleCollectionButtonPressed()
             })
         .disposed(by: disposeBag)
-    }
-    
-    private func handleTableButtonPressed() {
-        navigationController?.pushViewController(TableViewController(), animated: true)
-    }
-    
-    private func handleCollectionButtonPressed() {
-        navigationController?.pushViewController(CollectionViewController(), animated: true)
     }
 }
