@@ -11,8 +11,16 @@ import SnapKit
 
 final class WelcomeView: UIView {
     
+    //
+    // MARK: - Views
+    //
+    
     let tableButton = UIButton()
     let collectionButton = UIButton()
+    
+    //
+    // MARK: - Initializers
+    //
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -24,6 +32,10 @@ final class WelcomeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //
+    // MARK: - Private methods
+    //
     
     private func setupSubviews() {
         [tableButton, collectionButton].forEach { addSubview($0) }
@@ -44,6 +56,8 @@ final class WelcomeView: UIView {
     }
     
     private func setupStyling() {
+        backgroundColor = .white
+        
         tableButton.setTitle("Table", for: .normal)
         collectionButton.setTitle("Collection", for: .normal)
         
@@ -51,7 +65,5 @@ final class WelcomeView: UIView {
             $0.backgroundColor = .lightGray
             $0.tintColor = .black
         }
-        
-        backgroundColor = .white
     }
 }
