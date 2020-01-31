@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WelcomeViewController.swift
 //  diffable-data-source
 //
 //  Created by Josip Rezic on 31/01/2020.
@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class WelcomeViewController: UIViewController {
 
+    let contentView = WelcomeView()
+    
+    override func loadView() {
+        view = contentView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
