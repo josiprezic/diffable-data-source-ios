@@ -59,7 +59,7 @@ final class TableViewController: UITableViewController {
     //
     
     private func setupUI() {
-        title = String(describing: TableViewController.self)
+        title = String(describing: type(of: self))
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = randomizeButton
     }
