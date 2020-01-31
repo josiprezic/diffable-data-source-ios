@@ -6,7 +6,6 @@
 //  Copyright © 2020 Josip Rezic. All rights reserved.
 //
 
-import UIKit
 import SnapKit
 
 final class WelcomeView: UIView {

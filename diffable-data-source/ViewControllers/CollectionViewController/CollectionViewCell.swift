@@ -6,12 +6,19 @@
 //  Copyright © 2020 Josip Rezic. All rights reserved.
 //
 
-import UIKit
 import SnapKit
 
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
+    
+    //
+    // MARK: - Views
+    //
     
     let textLabel = UILabel()
+    
+    //
+    // MARK: - Initializers
+    //
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +26,22 @@ class CollectionViewCell: UICollectionViewCell {
         setupConstraints()
         setupStyling()
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //
+    // MARK: - Public methods
+    //
+    
+    func configureCell(text: String) {
+        textLabel.text = text
+    }
+    
+    //
+    // MARK: - Private methods
+    //
     
     private func setupSubviews() {
         addSubview(textLabel)
@@ -30,20 +53,12 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private final func setupStyling() {
+    private func setupStyling() {
         layer.cornerRadius = 5
-        clipsToBounds = true
         backgroundColor = .darkGray
+        clipsToBounds = true
         
         textLabel.font = .systemFont(ofSize: 40)
         textLabel.textColor = .white
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    final func configureCell(text: String) {
-        textLabel.text = text
     }
 }

@@ -81,9 +81,9 @@
 		D732E13923E42DC6002C10B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D732E13A23E42DEA002C10B8 /* WelcomeViewController */,
 				D732E13D23E44A79002C10B8 /* TableViewController */,
 				D732E13E23E44A8F002C10B8 /* CollectionViewController */,
-				D732E13A23E42DEA002C10B8 /* WelcomeViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
