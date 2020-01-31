@@ -32,14 +32,14 @@ final class WelcomeView: UIView {
     private func setupConstraints() {
         
         tableButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.left.right.equalToSuperview().inset(10)
-            make.bottom.equalTo(snp.centerYWithinMargins).inset(10)
+            make.top.equalToSuperview().offset(20)
+            make.left.right.equalToSuperview().inset(20)
+            make.bottom.equalTo(snp.centerYWithinMargins).inset(20)
         }
         
         collectionButton.snp.makeConstraints { make in
-            make.bottom.left.right.equalToSuperview().inset(10)
-            make.top.equalTo(snp.centerYWithinMargins).offset(10)
+            make.bottom.left.right.equalToSuperview().inset(20)
+            make.top.equalTo(snp.centerYWithinMargins).offset(20)
         }
     }
     
