@@ -11,7 +11,7 @@ import Foundation
 struct RandomNumbersProvider {
     
     //
-    // MARK:
+    // MARK: - Properties
     //
     
     var currentState = [RandomNumber]()
