@@ -10,6 +10,8 @@
 		D732E13C23E42E4D002C10B8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732E13B23E42E4D002C10B8 /* WelcomeView.swift */; };
 		D732E14023E44AA0002C10B8 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732E13F23E44AA0002C10B8 /* CollectionViewController.swift */; };
 		D732E14223E44AAA002C10B8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732E14123E44AAA002C10B8 /* TableViewController.swift */; };
+		D732E14523E46A62002C10B8 /* RandomNumbersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732E14423E46A62002C10B8 /* RandomNumbersProvider.swift */; };
+		D732E14723E46A9D002C10B8 /* RandomNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D732E14623E46A9D002C10B8 /* RandomNumber.swift */; };
 		D7A9188723E426140069D260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9188623E426140069D260 /* AppDelegate.swift */; };
 		D7A9188B23E426140069D260 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9188A23E426140069D260 /* WelcomeViewController.swift */; };
 		D7A9189023E426190069D260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A9188F23E426190069D260 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		D732E13B23E42E4D002C10B8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D732E13F23E44AA0002C10B8 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D732E14123E44AAA002C10B8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		D732E14423E46A62002C10B8 /* RandomNumbersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumbersProvider.swift; sourceTree = "<group>"; };
+		D732E14623E46A9D002C10B8 /* RandomNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumber.swift; sourceTree = "<group>"; };
 		D7A9188323E426140069D260 /* diffable-data-source.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "diffable-data-source.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7A9188623E426140069D260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7A9188A23E426140069D260 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -75,8 +79,8 @@
 		D732E13923E42DC6002C10B8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D732E13E23E44A8F002C10B8 /* CollectionViewController */,
 				D732E13D23E44A79002C10B8 /* TableViewController */,
+				D732E13E23E44A8F002C10B8 /* CollectionViewController */,
 				D732E13A23E42DEA002C10B8 /* WelcomeViewController */,
 			);
 			path = ViewControllers;
@@ -107,6 +111,15 @@
 			path = CollectionViewController;
 			sourceTree = "<group>";
 		};
+		D732E14323E46A45002C10B8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D732E14423E46A62002C10B8 /* RandomNumbersProvider.swift */,
+				D732E14623E46A9D002C10B8 /* RandomNumber.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D7A9187A23E426140069D260 = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +141,9 @@
 		D7A9188523E426140069D260 /* diffable-data-source */ = {
 			isa = PBXGroup;
 			children = (
-				D732E13823E42D6D002C10B8 /* SupportingFiles */,
 				D732E13923E42DC6002C10B8 /* ViewControllers */,
+				D732E14323E46A45002C10B8 /* Helpers */,
+				D732E13823E42D6D002C10B8 /* SupportingFiles */,
 			);
 			path = "diffable-data-source";
 			sourceTree = "<group>";
@@ -248,6 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D732E14723E46A9D002C10B8 /* RandomNumber.swift in Sources */,
+				D732E14523E46A62002C10B8 /* RandomNumbersProvider.swift in Sources */,
 				D732E14023E44AA0002C10B8 /* CollectionViewController.swift in Sources */,
 				D7A9188B23E426140069D260 /* WelcomeViewController.swift in Sources */,
 				D732E13C23E42E4D002C10B8 /* WelcomeView.swift in Sources */,

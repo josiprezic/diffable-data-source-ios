@@ -10,15 +10,27 @@ import UIKit
 
 final class TableViewController: UITableViewController {
     
+    //
+    // MARK: - Enums
+    //
+    
     enum Section: CaseIterable {
         case main
     }
     
+    //
+    // MARK: - Properties
+    //
+    
     @available(iOS 13.0, *)
-    private lazy var dataSource: UITableViewDiffableDataSource<Section, RandomNumbersProvider.RandomNumber>? = nil
+    private lazy var dataSource: UITableViewDiffableDataSource<Section, RandomNumber>? = nil
     
     private var randomNumbersProvider = RandomNumbersProvider()
     private var randomizeButton: UIBarButtonItem?
+    
+    //
+    // MARK: - View methods
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +45,19 @@ final class TableViewController: UITableViewController {
         populateTableView()
     }
     
+    //
+    // MARK: - Actions
+    //
+    
+    @objc func handleRandomizeButtonPressed() {
+        randomNumbersProvider.updateCurrentState()
+        populateTableView()
+    }
+    
+    //
+    // MARK: - Private methods
+    //
+    
     private func setupUI() {
         title = String(describing: TableViewController.self)
         view.backgroundColor = .white
@@ -44,6 +69,13 @@ final class TableViewController: UITableViewController {
         tableView.delegate = self
         setupTableViewDataSource()
     }
+}
+
+//
+// MARK: - TableViewDelegate, TableViewDataSource methods
+//
+
+extension TableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return Section.allCases.count
@@ -64,12 +96,11 @@ final class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    @objc func handleRandomizeButtonPressed() {
-        randomNumbersProvider.updateCurrentState()
-        populateTableView()
-    }
 }
+
+//
+// MARK: - DifferDataSource methods
+//
 
 extension TableViewController {
     
@@ -88,45 +119,12 @@ extension TableViewController {
     
     private func populateTableView() {
         if #available(iOS 13.0, *) {
-            var snapshot = NSDiffableDataSourceSnapshot<Section, RandomNumbersProvider.RandomNumber>()
+            var snapshot = NSDiffableDataSourceSnapshot<Section, RandomNumber>()
             snapshot.appendSections(Section.allCases)
             snapshot.appendItems(randomNumbersProvider.currentState)
             dataSource?.apply(snapshot)
         } else {
             tableView.reloadData()
-        }
-    }
-}
-
-// TODO: JR move
-struct RandomNumbersProvider {
-    
-    struct RandomNumber: Hashable {
-        let value: Int
-        
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(value)
-        }
-        
-        static func == (lhs: RandomNumber, rhs: RandomNumber) -> Bool {
-            return lhs.value == rhs.value
-        }
-    }
-    
-    private var allNumbers = [RandomNumber]()
-    var currentState = [RandomNumber]()
-    
-    init() {
-        for index in 1...100 { allNumbers.append(RandomNumber(value: index)) }
-        currentState = allNumbers
-    }
-    
-    mutating func updateCurrentState() {
-        currentState.removeAll()
-        for item in 1...100 {
-            if Bool.random() {
-                currentState.append(RandomNumber(value: item))
-            }
         }
     }
 }
