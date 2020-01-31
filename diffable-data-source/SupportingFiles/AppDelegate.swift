@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let welcomeViewController = WelcomeViewController()
         let navigationController = UINavigationController(rootViewController: welcomeViewController)
+        navigationController.navigationBar.barTintColor = .darkGray
         
         window = UIWindow()
         window?.rootViewController = navigationController

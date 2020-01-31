@@ -7,15 +7,51 @@
 //
 
 import UIKit
+import SnapKit
 
 final class WelcomeView: UIView {
     
+    let tableButton = UIButton()
+    let collectionButton = UIButton()
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        backgroundColor = .red
+        setupSubviews()
+        setupConstraints()
+        setupStyling()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupSubviews() {
+        [tableButton, collectionButton].forEach { addSubview($0) }
+    }
+    
+    private func setupConstraints() {
+        
+        tableButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.left.right.equalToSuperview().inset(10)
+            make.bottom.equalTo(snp.centerYWithinMargins).inset(10)
+        }
+        
+        collectionButton.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview().inset(10)
+            make.top.equalTo(snp.centerYWithinMargins).offset(10)
+        }
+    }
+    
+    private func setupStyling() {
+        tableButton.setTitle("Table", for: .normal)
+        collectionButton.setTitle("Collection", for: .normal)
+        
+        [tableButton, collectionButton].forEach {
+            $0.backgroundColor = .lightGray
+            $0.tintColor = .black
+        }
+        
+        backgroundColor = .white
     }
 }

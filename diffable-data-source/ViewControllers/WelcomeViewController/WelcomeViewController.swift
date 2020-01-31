@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class WelcomeViewController: UIViewController {
 
     let contentView = WelcomeView()
+    let disposeBag = DisposeBag()
     
     override func loadView() {
         view = contentView
@@ -18,9 +21,32 @@ final class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        edgesForExtendedLayout = []
+        title = String(describing: type(of: self))
+        
+        setupObservables()
     }
-
-
+    
+    private func setupObservables() {
+        contentView.tableButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.handleTableButtonPressed()
+            })
+        .disposed(by: disposeBag)
+        
+        contentView.collectionButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.handleCollectionButtonPressed()
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    private func handleTableButtonPressed() {
+        navigationController?.pushViewController(TableViewController(), animated: true)
+    }
+    
+    private func handleCollectionButtonPressed() {
+        navigationController?.pushViewController(CollectionViewController(), animated: true)
+    }
 }
-
