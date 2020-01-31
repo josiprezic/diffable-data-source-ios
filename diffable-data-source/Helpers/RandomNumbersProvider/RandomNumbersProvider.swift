@@ -10,13 +10,23 @@ import Foundation
 
 struct RandomNumbersProvider {
     
-    private var allNumbers = [RandomNumber]()
+    //
+    // MARK:
+    //
+    
     var currentState = [RandomNumber]()
     
+    //
+    // MARK: - Initializers
+    //
+    
     init() {
-        for index in 1...100 { allNumbers.append(RandomNumber(value: index)) }
-        currentState = allNumbers
+        for index in 1...100 { currentState.append(RandomNumber(value: index)) }
     }
+    
+    //
+    // MARK: - Methods
+    //
     
     mutating func updateCurrentState() {
         currentState.removeAll()

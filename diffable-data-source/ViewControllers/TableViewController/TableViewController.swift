@@ -72,7 +72,7 @@ final class TableViewController: UITableViewController {
 }
 
 //
-// MARK: - TableViewDelegate, TableViewDataSource methods
+// MARK: - Extension - TableViewDelegate, TableViewDataSource methods
 //
 
 extension TableViewController {
@@ -99,7 +99,7 @@ extension TableViewController {
 }
 
 //
-// MARK: - DifferDataSource methods
+// MARK: - Extension - DifferDataSource methods
 //
 
 extension TableViewController {

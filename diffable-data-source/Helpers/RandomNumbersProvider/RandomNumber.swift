@@ -9,8 +9,17 @@
 import Foundation
 
 struct RandomNumber {
+    
+    //
+    // MARK: - Properties
+    //
+    
     let value: Int
 }
+
+//
+// MARK: - Extension - Hashable
+//
 
 extension RandomNumber: Hashable {
     

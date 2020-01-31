@@ -114,10 +114,18 @@
 		D732E14323E46A45002C10B8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D732E14823E46DCF002C10B8 /* RandomNumbersProvider */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D732E14823E46DCF002C10B8 /* RandomNumbersProvider */ = {
+			isa = PBXGroup;
+			children = (
 				D732E14423E46A62002C10B8 /* RandomNumbersProvider.swift */,
 				D732E14623E46A9D002C10B8 /* RandomNumber.swift */,
 			);
-			path = Helpers;
+			path = RandomNumbersProvider;
 			sourceTree = "<group>";
 		};
 		D7A9187A23E426140069D260 = {
