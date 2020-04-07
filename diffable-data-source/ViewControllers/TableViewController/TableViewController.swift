@@ -118,10 +118,8 @@ extension TableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        print("OffsetY = \(offsetY)")
-        print("Content height: \(contentHeight)")
         
-        if offsetY > contentHeight - scrollView.frame.height {
+        if offsetY > contentHeight - scrollView.frame.height * 4 {
             guard shouldFetchMore else { return }
             addMoreRows()
         }
@@ -131,7 +129,7 @@ extension TableViewController {
         shouldFetchMore = false
         
         // Simulating API response
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
             self?.randomNumbersProvider.addMoreRows()
             self?.shouldFetchMore = true
             self?.populateTableView()
