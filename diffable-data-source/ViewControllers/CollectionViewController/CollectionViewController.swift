@@ -49,6 +49,11 @@ final class CollectionViewController: UICollectionViewController {
         randomizeButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(handleRandomizeButtonPressed))
         setupUI()
         configureCollectionView()
+        
+        // Hero
+        hero.isEnabled = true
+        view.hero.id = "collectionHero"
+        view.hero.modifiers = [.durationMatchLongest]
     }
     
     override func viewDidAppear(_ animated: Bool) {

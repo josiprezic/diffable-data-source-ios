@@ -1,4 +1,5 @@
 PODS:
+  - Hero (1.5.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -8,23 +9,26 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - Hero
   - RxCocoa
   - RxSwift
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Hero
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: d6463454a8f5ad3321786f6e76f9c6b45d577fac
+PODFILE CHECKSUM: d3b35595ee3ada30d384cb03e70c4afa0211cd79
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

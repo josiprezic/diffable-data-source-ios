@@ -38,6 +38,9 @@ final class TableViewController: UITableViewController {
         setupUI()
         configureTableView()
         
+        // Hero
+        hero.isEnabled = true
+        view.hero.id = "tableHero"
     }
     
     override func viewDidAppear(_ animated: Bool) {

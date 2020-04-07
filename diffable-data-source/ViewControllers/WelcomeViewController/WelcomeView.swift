@@ -38,10 +38,12 @@ final class WelcomeView: UIView {
     
     private func setupSubviews() {
         [tableButton, collectionButton].forEach { addSubview($0) }
+        
+        tableButton.hero.id = "tableHero"
+        collectionButton.hero.id = "collectionHero"
     }
     
     private func setupConstraints() {
-        
         tableButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.left.right.equalToSuperview().inset(20)
