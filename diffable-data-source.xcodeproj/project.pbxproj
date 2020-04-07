@@ -17,6 +17,7 @@
 		D7A9189023E426190069D260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A9188F23E426190069D260 /* Assets.xcassets */; };
 		D7A9189323E426190069D260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A9189123E426190069D260 /* LaunchScreen.storyboard */; };
 		D7D437B023E47A1F00FF5E25 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D437AF23E47A1F00FF5E25 /* CollectionViewCell.swift */; };
+		E2D377B8243D082C00BAFD7C /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D377B7243D082C00BAFD7C /* LoadingTableViewCell.swift */; };
 		F971BEF9B74CED13322E6748 /* Pods_diffable_data_source.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740BEFC5FD413C07E4AFE3A6 /* Pods_diffable_data_source.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		D7A9189223E426190069D260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7A9189423E426190069D260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7D437AF23E47A1F00FF5E25 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E2D377B7243D082C00BAFD7C /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				D732E14123E44AAA002C10B8 /* TableViewController.swift */,
+				E2D377B7243D082C00BAFD7C /* LoadingTableViewCell.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				D732E14723E46A9D002C10B8 /* RandomNumber.swift in Sources */,
 				D732E14523E46A62002C10B8 /* RandomNumbersProvider.swift in Sources */,
+				E2D377B8243D082C00BAFD7C /* LoadingTableViewCell.swift in Sources */,
 				D7D437B023E47A1F00FF5E25 /* CollectionViewCell.swift in Sources */,
 				D732E14023E44AA0002C10B8 /* CollectionViewController.swift in Sources */,
 				D7A9188B23E426140069D260 /* WelcomeViewController.swift in Sources */,
@@ -418,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9V923T224A;
+				DEVELOPMENT_TEAM = TLWQ546V2V;
 				INFOPLIST_FILE = "diffable-data-source/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,7 +442,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9V923T224A;
+				DEVELOPMENT_TEAM = TLWQ546V2V;
 				INFOPLIST_FILE = "diffable-data-source/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (

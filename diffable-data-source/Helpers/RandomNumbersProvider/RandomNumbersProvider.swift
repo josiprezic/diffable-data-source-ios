@@ -15,13 +15,15 @@ struct RandomNumbersProvider {
     //
     
     var currentState = [RandomNumber]()
+    var currentMaxNumber = 100
+    var numberOfNewRows = 20
     
     //
     // MARK: - Initializers
     //
     
     init() {
-        for index in 1...100 { currentState.append(RandomNumber(value: index)) }
+        for index in 1...currentMaxNumber { currentState.append(RandomNumber(value: index)) }
     }
     
     //
@@ -30,10 +32,17 @@ struct RandomNumbersProvider {
     
     mutating func updateCurrentState() {
         currentState.removeAll()
-        for item in 1...100 {
+        for item in 1...currentMaxNumber {
             if Bool.random() {
                 currentState.append(RandomNumber(value: item))
             }
         }
+    }
+    
+    mutating func addMoreRows() {
+        for item in currentMaxNumber + 1...currentMaxNumber + numberOfNewRows {
+            currentState.append(RandomNumber(value: item))
+        }
+        currentMaxNumber += numberOfNewRows
     }
 }

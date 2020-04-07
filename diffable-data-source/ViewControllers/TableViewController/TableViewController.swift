@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: Fix loading cell issue
+
 final class TableViewController: UITableViewController {
     
     //
@@ -16,6 +18,7 @@ final class TableViewController: UITableViewController {
     
     enum Section: CaseIterable {
         case main
+        case loading
     }
     
     //
@@ -27,6 +30,7 @@ final class TableViewController: UITableViewController {
     
     private var randomNumbersProvider = RandomNumbersProvider()
     private var randomizeButton: UIBarButtonItem?
+    private var shouldFetchMore = false
     
     //
     // MARK: - View methods
@@ -43,6 +47,7 @@ final class TableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         populateTableView()
+        shouldFetchMore = true
     }
     
     //
@@ -66,6 +71,7 @@ final class TableViewController: UITableViewController {
     
     private func configureTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.register(LoadingTableViewCell.self, forCellReuseIdentifier: String(describing: LoadingTableViewCell.self))
         tableView.delegate = self
         setupTableViewDataSource()
     }
@@ -82,19 +88,54 @@ extension TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return randomNumbersProvider.currentState.count
+        if section == 0 {
+            return randomNumbersProvider.currentState.count
+        }
+        return 1 // TODO: loading cell
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self)) else {
-            fatalError("\(#function): Cannot dequeue reusable cell.")
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self)) else {
+                fatalError("\(#function): Cannot dequeue reusable cell.")
+            }
+            cell.textLabel?.text = "\(randomNumbersProvider.currentState[indexPath.row])"
+            return cell
+        } else {
+            let cellId = String(describing: LoadingTableViewCell.self)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? LoadingTableViewCell else {
+                fatalError("\(#function): Cannot dequeue reusable cell.")
+            }
+            cell.activityIndicatorView.startAnimating()
+            return cell
         }
-        cell.textLabel?.text = "\(randomNumbersProvider.currentState[indexPath.row])"
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        print("OffsetY = \(offsetY)")
+        print("Content height: \(contentHeight)")
+        
+        if offsetY > contentHeight - scrollView.frame.height {
+            guard shouldFetchMore else { return }
+            addMoreRows()
+        }
+    }
+    
+    private func addMoreRows() {
+        shouldFetchMore = false
+        
+        // Simulating API response
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.randomNumbersProvider.addMoreRows()
+            self?.shouldFetchMore = true
+            self?.populateTableView()
+        }
     }
 }
 
